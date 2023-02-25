@@ -50,9 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="7mm"
-        android:background="#fcf7f4"
         android:orientation="horizontal"
-        tools:context=".MainActivity">
+        android:background="@drawable/rounded_corner">
 
         <TextView
             android:id="@+id/textView2"
