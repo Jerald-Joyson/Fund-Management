@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionButton mAddFab;
     TextView resAmt,mnthView;
-    Button btnInc,btnOut,rBtn;
+    Button btnInc,btnOut;
     String Mnth="";
 
     public static final String SHARED_PREFS = "sharedPrefs";
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         resAmt=findViewById(R.id.resAmt);
         btnInc=findViewById(R.id.btnInc);
         btnOut=findViewById(R.id.btnOut);
-        //rBtn=findViewById(R.id.rBtn);
+        mAddFab = findViewById(R.id.add_fab);
 
         resAmt.setText(loadAmt("bAmount"));
         resultIn= loadAmt("incAmount");
@@ -59,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, OutgoingActivity.class));
             }
         });
-        /*rBtn.setOnClickListener(new View.OnClickListener() {
+        mAddFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     public void storeAmt(String result){
