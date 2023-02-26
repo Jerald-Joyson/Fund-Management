@@ -20,12 +20,25 @@
         android:textSize="34sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/mnthView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3mm"
+        android:layout_marginTop="2mm"
+        android:layout_marginRight="3mm"
+        android:hint="Month"
+        android:padding="1mm"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner_g"
+        android:textSize="22sp" />
+
     <Button
         android:id="@+id/btnInc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="3mm"
-        android:layout_marginTop="7mm"
+        android:layout_marginTop="5mm"
         android:layout_marginRight="3mm"
         android:backgroundTint="#4c878b"
         android:fontFamily="sans-serif"
@@ -69,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3mm"
-            android:text="100"
+            android:text="0"
             android:textColor="#D01C1F"
             android:textSize="20sp"
             android:textStyle="bold" />
