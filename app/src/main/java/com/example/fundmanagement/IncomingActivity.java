@@ -39,7 +39,7 @@ import java.util.Locale;
 public class IncomingActivity extends AppCompatActivity {
     String[] permission = {READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE};
     ActivityResultLauncher<Intent> activityResultLauncher;
-    private String filename = "Income.txt";
+    private String filename = "Incoming.txt";
     final Calendar myCalendar = Calendar.getInstance();
     TextView mnthViewInc, resIncAmt;
     EditText dateView, incName, incAmt;
@@ -49,7 +49,7 @@ public class IncomingActivity extends AppCompatActivity {
     private String result;
 
     StringBuilder ss = new StringBuilder();
-    String data, a, b, res, value;
+    String data, a, b, res,value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,44 +88,8 @@ public class IncomingActivity extends AppCompatActivity {
         btnIncSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (dateView.getText().toString().equals("")) {
-                    dateView.setError("Plz provide Date");
-                } else if (incName.getText().toString().equals("")) {
-                    incName.setError("Plz provide Name");
-                } else if (incAmt.getText().toString().equals("")) {
-                    incAmt.setError("Plz provide Amount");
-                } else {
-
-                    data = dateView.getText().toString();
-                    ss.append("Date:");
-                    ss.append(data);
-                    ss.append("\n");
-                    dateView.setText("");
-
-                    data = incName.getText().toString();
-                    ss.append("Name:");
-                    ss.append(data);
-                    ss.append("\n");
-                    incName.setText("");
-
-                    data = incAmt.getText().toString();
-                    a = incAmt.getText().toString();
-                    ss.append("Amount:");
-                    ss.append(data);
-                    ss.append("\n");
-                    incAmt.setText("");
-
-                    Toast.makeText(getApplicationContext(), ss + "Saved successfully...!", Toast.LENGTH_LONG).show();
-
-                    b = resIncAmt.getText().toString();
-                    res = addition(a, b);
-                    resIncAmt.setText(res);
-                    storeAmt(resIncAmt.getText().toString());
-
-                }
                 if (checkPermission()) {
-                    String u = "Successfull..!";
+                    String u = Details();
                     writeData(u);
                 } else {
                     requestPermission();
@@ -147,6 +111,45 @@ public class IncomingActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public String Details(){
+        if (dateView.getText().toString().equals("")) {
+            dateView.setError("Plz provide Date");
+        } else if (incName.getText().toString().equals("")) {
+            incName.setError("Plz provide Name");
+        } else if (incAmt.getText().toString().equals("")) {
+            incAmt.setError("Plz provide Amount");
+        } else {
+
+            data = dateView.getText().toString();
+            ss.append("Date:");
+            ss.append(data);
+            ss.append(" ");
+            dateView.setText("");
+
+            data = incName.getText().toString();
+            ss.append("Name:");
+            ss.append(data);
+            ss.append(" ");
+            incName.setText("");
+
+            data = incAmt.getText().toString();
+            a = incAmt.getText().toString();
+            ss.append("Amount:");
+            ss.append(data);
+            ss.append(" ");
+            incAmt.setText("");
+
+            Toast.makeText(getApplicationContext(), ss , Toast.LENGTH_LONG).show();
+
+            b = resIncAmt.getText().toString();
+            res = addition(a, b);
+            resIncAmt.setText(res);
+            storeAmt(resIncAmt.getText().toString());
+
+        }
+        return ss+" *\n";
     }
 
     private void updateLabel() {
@@ -179,9 +182,11 @@ public class IncomingActivity extends AppCompatActivity {
 
     private void writeData(String data) {
         try {
-            File f1 = new File(Environment.getExternalStoragePublicDirectory("Android"), value);
+            File f1 = new File(Environment.getExternalStoragePublicDirectory("Android/"), ".FundManagement");
             f1.mkdir();
-            String z = "Android/" + value;
+            File f2 = new File(Environment.getExternalStoragePublicDirectory("Android/.FundManagement/"), value);
+            f2.mkdir();
+            String z = "Android/.FundManagement/" + value;
             File f = new File(Environment.getExternalStoragePublicDirectory(z), filename);
             FileWriter fos = new FileWriter(f, true);
             fos.write(data);

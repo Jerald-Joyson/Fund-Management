@@ -35,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         mAddFab = findViewById(R.id.add_fab);
 
         resAmt.setText(loadAmt("bAmount"));
-        resultIn= loadAmt("incAmount");
-        resultOut = loadAmt("outAmount");
-        storeAmt(sub(resultIn,resultOut));
 
         mnthView = (TextView)findViewById(R.id.mnthView);
         Calendar c = Calendar.getInstance();
@@ -65,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         mAddFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                resultIn= loadAmt("incAmount");
+                resultOut = loadAmt("outAmount");
+                storeAmt(sub(resultIn,resultOut));
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);
