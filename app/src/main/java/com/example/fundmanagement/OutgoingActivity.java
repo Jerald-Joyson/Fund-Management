@@ -114,20 +114,20 @@ public class OutgoingActivity extends AppCompatActivity {
             data=dateView1.getText().toString();
             sa.append("Date:");
             sa.append(data);
-            sa.append(" ");
+            sa.append(",");
             dateView1.setText("");
 
             data=outAmt.getText().toString();
             a = outAmt.getText().toString();
             sa.append("Amount:");
             sa.append(data);
-            sa.append(" ");
+            sa.append(",");
             outAmt.setText("");
 
             data=outName.getText().toString();
-            sa.append("Amount for:");
+            sa.append("Amount_For:");
             sa.append(data);
-            sa.append(" ");
+            sa.append(",");
             outName.setText("");
 
             //Toast.makeText(getApplicationContext(),sa +"Saved successfully...",Toast.LENGTH_LONG).show();
@@ -137,7 +137,7 @@ public class OutgoingActivity extends AppCompatActivity {
             resOutAmt.setText(res);
             storeAmt(resOutAmt.getText().toString());
         }
-        return sa+" *\n";
+        return sa+"*\n";
     }
     private void updateLabels(){
         String myFormat="dd/MM/yy";
