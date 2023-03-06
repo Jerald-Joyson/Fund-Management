@@ -125,20 +125,20 @@ public class IncomingActivity extends AppCompatActivity {
             data = dateView.getText().toString();
             ss.append("Date:");
             ss.append(data);
-            ss.append(" ");
+            ss.append(",");
             dateView.setText("");
 
             data = incName.getText().toString();
             ss.append("Name:");
             ss.append(data);
-            ss.append(" ");
+            ss.append(",");
             incName.setText("");
 
             data = incAmt.getText().toString();
             a = incAmt.getText().toString();
             ss.append("Amount:");
             ss.append(data);
-            ss.append(" ");
+            ss.append(",");
             incAmt.setText("");
 
             Toast.makeText(getApplicationContext(), ss , Toast.LENGTH_LONG).show();
@@ -149,7 +149,7 @@ public class IncomingActivity extends AppCompatActivity {
             storeAmt(resIncAmt.getText().toString());
 
         }
-        return ss+" *\n";
+        return ss+"*\n";
     }
 
     private void updateLabel() {
